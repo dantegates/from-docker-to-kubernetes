@@ -5,13 +5,17 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: from-docker-to-kubernetes
   tag: stable
   pullPolicy: IfNotPresent
 
 service:
   type: ClusterIP
-  port: 80
+  port: 5000
+
+container:
+  port: 5000
+  aliveEndpoint: /alive
 
 ingress:
   enabled: false
